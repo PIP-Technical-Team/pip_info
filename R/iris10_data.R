@@ -16,7 +16,10 @@ dir <-  fs::path("data") |>
 fname <- fs::path(dir, "iris")
 
 haven::write_dta(iris10, fs::path(fname, ext = "dta"))
-jsonlite::write_json(iris10, fs::path(fname, ext = "json"))
+jsonlite::write_json(as.data.frame(iris10), 
+                    fs::path(fname, ext = "json"), 
+                    pretty = TRUE, 
+                    auto_unbox = TRUE)
 yaml::write_yaml(iris10, fs::path(fname, ext = "json"))
 qs::qsave(iris10, fs::path(fname, ext = "qs"))
 fst::write_fst(iris10, fs::path(fname, ext = "fst"))
