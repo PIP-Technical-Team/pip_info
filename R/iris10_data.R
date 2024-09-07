@@ -1,7 +1,14 @@
-
-getwd()
+library(fastverse)
 iris10 <- iris[1:10,] |> 
-  janitor::clean_names()
+  janitor::clean_names() |>
+  setDT()
+
+fct_vars <- iris10 |>
+    fact_vars("names")
+
+iris10[, (fct_vars) := lapply(.SD, as.character), 
+.SDcols = fct_vars]
+
 
 dir <-  fs::path("data") |> 
   fs::dir_create()
