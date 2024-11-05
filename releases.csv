@@ -1,4 +1,3 @@
-release,identity,n
-20240326,PROD,1
-20241101,PROD,2
-20241105,PROD,3
+release,identity
+20240326,PROD
+20241101,PROD
